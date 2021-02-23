@@ -5,18 +5,35 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import com.dexterlohnes.kmmnetworkingsample.shared.Greeting
 import android.widget.TextView
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-
-fun greet(): String {
-    return Greeting().greeting()
-}
+import com.dexterlohnes.kmmnetworkingsample.shared.SpaceXSDK
+import com.dexterlohnes.kmmnetworkingsample.shared.cache.DatabaseDriverFactory
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
 
 class MainActivity : AppCompatActivity() {
 
+    // Main Views
     private lateinit var launchesRecyclerView: RecyclerView
     private lateinit var progressBarView: FrameLayout
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+
+    // Adapter
+    private val launchesRvAdapter = LaunchesRvAdapter(listOf())
+
+    // Sdk
+    private val sdk = SpaceXSDK(DatabaseDriverFactory(this))
+
+    // Coroutines / scoping
+    private val mainScope = MainScope()
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mainScope.cancel()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,5 +46,19 @@ class MainActivity : AppCompatActivity() {
         progressBarView = findViewById(R.id.progressBar)
         swipeRefreshLayout = findViewById(R.id.swipeContainer)
 
+
+        launchesRecyclerView.adapter = launchesRvAdapter
+        launchesRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.isRefreshing = false
+            displayLaunches(true)
+        }
+
+        displayLaunches(false)
+    }
+
+    private fun displayLaunches(needReload: Boolean) {
+        progressBarView.isVisible = true
     }
 }
