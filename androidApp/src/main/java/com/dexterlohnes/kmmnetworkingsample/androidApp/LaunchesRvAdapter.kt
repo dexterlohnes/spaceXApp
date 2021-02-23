@@ -32,7 +32,7 @@ class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter
             val ctx = itemView.context
             missionNameTextView.text = ctx.getString(R.string.mission_name_field, launch.missionName)
             launchSuccessTextView.text = ctx.getString(R.string.launch_success_field, if (launch.launchSuccess == true) "Yes" else "No")
-            launchYearTextView.text = ctx.getString(R.string.launch_year_field, "$launch.launchYear")
+            launchYearTextView.text = ctx.getString(R.string.launch_year_field, launch.launchYear.toString())
             missionDetailsTextView.text = ctx.getString(R.string.details_field, launch.details ?: "None")
 
             val launchSuccess = launch.launchSuccess
@@ -50,6 +50,4 @@ class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter
             }
         }
     }
-
-
 }
