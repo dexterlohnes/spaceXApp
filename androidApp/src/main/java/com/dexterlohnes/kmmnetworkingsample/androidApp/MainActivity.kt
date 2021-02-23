@@ -2,9 +2,11 @@ package com.dexterlohnes.kmmnetworkingsample.androidApp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.FrameLayout
 import com.dexterlohnes.kmmnetworkingsample.shared.Greeting
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,7 @@ import com.dexterlohnes.kmmnetworkingsample.shared.SpaceXSDK
 import com.dexterlohnes.kmmnetworkingsample.shared.cache.DatabaseDriverFactory
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +62,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayLaunches(needReload: Boolean) {
-        progressBarView.isVisible = true
+        progressBarView.visibility = View.VISIBLE
+        mainScope.launch {
+            kotlin.runCatching {
+                sdk.getLaunches(needReload)
+            }.onSuccess {
+                launchesRvAdapter.launches = it
+                launchesRvAdapter.notifyDataSetChanged()
+            }.onFailure {
+                Toast.makeText(this@MainActivity, it.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
+            progressBarView.visibility = View.GONE
+        }
     }
 }
