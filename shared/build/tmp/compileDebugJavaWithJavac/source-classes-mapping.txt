@@ -1,0 +1,2 @@
+com/dexterlohnes/kmmnetworkingsample/shared/BuildConfig.java
+ com.dexterlohnes.kmmnetworkingsample.shared.BuildConfig

@@ -1,0 +1,29 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml:2:1-5:12
+INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml:2:1-5:12
+INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml:2:1-5:12
+	package
+		ADDED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml:3:5-58
+		INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml:4:5-66
+	android:name
+		ADDED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml:4:22-64
+uses-sdk
+INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+		ADDED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+		ADDED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
+		INJECTED from /Users/dexterlohnes/Contracts/KMMNetworkingSample/shared/src/androidMain/AndroidManifest.xml
